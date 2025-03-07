@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Thi Thu - Digital Marketing CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #5f4b8b;
+            --secondary-color: #e96d77;
+            --bg-color: #f9f9f9;
+            --dark-bg: #333;
+            --light-text: #fff;
+            --dark-text: #222;
+            --accent: #4ecdc4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--light-text);
+            margin-bottom: 20px;
+            object-fit: cover;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .header-text {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            animation: slideUp 0.8s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .intro {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: slideUp 0.8s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .sections-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        .left-column,
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-color));
+            color: var(--light-text);
+            padding: 15px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .section-content {
+            padding: 20px;
+        }
+
+        /* Contact Section */
+        .contact-list {
+            list-style-type: none;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 14px;
+        }
+
+        /* Skills Section */
+        .skills-list {
+            list-style-type: none;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            margin-bottom: 5px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-progress {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--primary-color);
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            left: -7px;
+            top: 5px;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .job-description {
+            font-size: 0.95rem;
+        }
+
+        .job-description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .job-description li {
+            margin-bottom: 5px;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .school {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .degree {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .sections-container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Shapes for design */
+        .shape {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .shape-1 {
+            top: -20px;
+            right: 10%;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            bottom: -30px;
+            left: 5%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 8s ease-in-out infinite 1s;
+        }
+
+        .shape-3 {
+            top: 30%;
+            left: 15%;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 7s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(20px, -20px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Language Section */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .language-name {
+            font-weight: 500;
+        }
+
+        .language-level {
+            color: var(--secondary-color);
+        }
+
+        /* Certificate Section */
+        .certificate-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e9ecef;
+        }
+
+        .certificate-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .certificate-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .certificate-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .certificate-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">NT</div>
+                <div class="header-text">
+                    <h1>NGUYEN THI THU</h1>
+                    <p class="title">DIGITAL MARKETING</p>
+                    <p class="intro">Khi là Marketing Intern, tôi muốn cải thiện kỹ năng nghiên cứu và phân tích dữ
+                        liệu, lập kế hoạch chiến dịch, từ đó giúp công ty tối ưu hóa hiệu quả của các chiến dịch quảng
+                        cáo. Mục tiêu dài hạn của tôi là trở thành Digital Marketing Executive trong 2 năm tới và tiến
+                        tới vị trí Digital Marketing Manager.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="sections-container">
+                <div class="left-column">
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Liên hệ</h2>
+                        </div>
+                        <div class="section-content">
+                            <ul class="contact-list">
+                                <li class="contact-item">
+                                    <div class="contact-icon">📱</div>
+                                    <div>0342965869</div>
+                                </li>
+                                <li class="contact-item">
+                                    <div class="contact-icon">✉️</div>
+                                    <div>Thu914723@gmail.com</div>
+                                </li>
+                                <li class="contact-item">
+                                    <div class="contact-icon">📍</div>
+                                    <div>Hà Nội</div>
+                                </li>
+                                <li class="contact-item">
+                                    <div class="contact-icon">👤</div>
+                                    <div>facebook.com/Thuwu02</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Kỹ năng</h2>
+                        </div>
+                        <div class="section-content">
+                            <ul class="skills-list">
+                                <li class="skill-item">
+                                    <div class="skill-name">Project Management</div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" style="width: 0;" data-width="90%"></div>
+                                    </div>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-name">Market Research</div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" style="width: 0;" data-width="85%"></div>
+                                    </div>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-name">Teamwork</div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" style="width: 0;" data-width="95%"></div>
+                                    </div>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-name">Content Creation Tools</div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" style="width: 0;" data-width="80%"></div>
+                                    </div>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-name">AI Tools</div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" style="width: 0;" data-width="75%"></div>
+                                    </div>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-name">Leadership</div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" style="width: 0;" data-width="85%"></div>
+                                    </div>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-name">Content Creator</div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" style="width: 0;" data-width="88%"></div>
+                                    </div>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-name">Time Management</div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" style="width: 0;" data-width="92%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Ngôn ngữ</h2>
+                        </div>
+                        <div class="section-content">
+                            <div class="language-item">
+                                <div class="language-name">Tiếng Anh</div>
+                                <div class="language-level">Thông thạo</div>
+                            </div>
+                            <div class="language-item">
+                                <div class="language-name">Tiếng Việt</div>
+                                <div class="language-level">Bản ngữ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Học vấn</h2>
+                        </div>
+                        <div class="section-content">
+                            <div class="education-item">
+                                <div class="school">FPT UNIVERSITY</div>
+                                <div class="degree">Sinh viên đang chờ tốt nghiệp</div>
+                                <div class="date">2020 - 2024</div>
+                                <div>Academic Preparatory English Transition 6</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Chứng chỉ</h2>
+                        </div>
+                        <div class="section-content">
+                            <div class="certificate-item">
+                                <div class="certificate-title">Chứng chỉ quốc tế từ Coursera</div>
+                                <a href="https://goeco.link/CdMNE" class="certificate-link"
+                                    target="_blank">https://goeco.link/CdMNE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Kinh nghiệm làm việc</h2>
+                        </div>
+                        <div class="section-content">
+                            <div class="experience-item">
+                                <div class="job-title">ON THE JOB TRAINING</div>
+                                <div class="company">Sales</div>
+                                <div class="date">09/2023 - 12/2023</div>
+                                <div class="job-description">
+                                    <p>Thành thạo trong giao tiếp, thuyết phục và kỹ năng đàm phán. Xây dựng và duy trì
+                                        mối quan hệ tốt với khách hàng, cung cấp tư vấn và trả lời câu hỏi về sản
+                                        phẩm/dịch vụ chứng khoán.</p>
+                                    <p><strong>Kết quả:</strong> Đạt doanh số $1,000 trong 2 tháng đầu làm việc, chủ yếu
+                                        thông qua tư vấn và thuyết phục khách hàng đầu tư.</p>
+                                </div>
+                            </div>
+
+                            <div class="experience-item">
+                                <div class="job-title">ORGANISER THE OGL</div>
+                                <div class="company">𝐅∞ 𝐂𝐀𝐌𝐏 2𝟎𝟐𝟐</div>
+                                <div class="date">09/2022 - 12/2022</div>
+                                <div class="job-description">
+                                    <p>Hướng dẫn, chia sẻ thông tin, chăm sóc và truyền cảm hứng cho sinh viên mới nhập
+                                        học.</p>
+                                </div>
+                            </div>
+
+                            <div class="experience-item">
+                                <div class="job-title">CONTENT WRITER</div>
+                                <div class="company">No Shy Club</div>
+                                <div class="date">03/2020 - 03/2022</div>
+                                <div class="job-description">
+                                    <p>Viết nội dung trên Fanpage, đề xuất ý tưởng cho sự kiện.</p>
+                                    <p><strong>Kết quả:</strong> 7,4 nghìn lượt Like và 7,6 nghìn lượt theo dõi.</p>
+                                </div>
+                            </div>
+
+                            <div class="experience-item">
+                                <div class="job-title">HEAD OF COMMUNICATIONS DEPARTMENT</div>
+                                <div class="company">PROJECT: TALK SHOW 'EP KHOE MOI NGAY'</div>
+                                <div class="date">05/2023 - 07/2023</div>
+                                <div class="job-description">
+                                    <p>Xác định ngày bắt đầu và kết thúc dự án, theo dõi tiến độ dự án, nội dung cần
+                                        hoàn thành cho mỗi ngày và từng thành viên.</p>
+                                    <p><strong>Kết quả:</strong> TalkShow có tới 60 người tham dự, tăng 20% so với dự
+                                        kiến thông qua các hoạt động truyền thông trong lớp học và đăng nội dung trên
+                                        fanpage.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Nguyen Thi Thu. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon">FB</a>
+                <a href="#" class="social-icon">LI</a>
+                <a href="#" class="social-icon">IG</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation for skill bars when they come into view
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animate skill bars after page load
+            setTimeout(function () {
+                const progressBars = document.querySelectorAll('.progress-bar');
+                progressBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                });
+            }, 300);
+
+            // Animate sections when they come into view
+            const sections = document.querySelectorAll('.section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Profile image pulse animation
+            const profileImg = document.querySelector('.profile-img');
+            setInterval(() => {
+                profileImg.style.animation = 'pulse 2s';
+                setTimeout(() => {
+                    profileImg.style.animation = '';
+                }, 2000);
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>
